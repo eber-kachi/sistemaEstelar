@@ -1,6 +1,6 @@
 $(ListarClientes());
 $(document).ready(function() {
-    $("#alerta div #mensajeCi").css("display", "none;");
+    //$("#alerta div #mensajeCi").css("display", "none;");
     $('#buscarCliente').focus();
     // console.log('nombreClientee');
 });
@@ -37,14 +37,14 @@ $(document).on('keyup', '#buscarCliente', function() {
     }
 });
 ///////Verificar Si se repite ci
-$(VerificarCi());
+//$(VerificarCi());             si no funiona el buscador ci descomente esto 
 $(document).ready(function() {
     $('#verificarCiInput').focus();
     //console.log('hisiste Clik');
 });
 
 function VerificarCi(ciCliente) {
-    console.log(ciCliente);
+    // console.log(ciCliente);
     $.ajax({
             url: '../../Controlador/Cliente/LogicaVerificarCi.php',
             type: 'POST',
@@ -54,7 +54,7 @@ function VerificarCi(ciCliente) {
 
         })
         .done(function(resultado) {
-            console.log("estado" + resultado);
+            // console.log("estado" + resultado);
             var btn = document.getElementById('registrar');
             if (resultado == 1) {
 
@@ -73,11 +73,34 @@ function VerificarCi(ciCliente) {
 } //end function
 $(document).on('keyup', '#verificarCiInput', function() {
     var criterioBusqueda = $(this).val();
-    console.log("Clietrio: " + criterioBusqueda);
+    //console.log("Clietrio: " + criterioBusqueda);
     if (criterioBusqueda != " ") {
         VerificarCi(criterioBusqueda);
     } else {
         $("#mensajeCi").html('');
     }
 });
-///
+/// listar  habitaciones segun el tipo de habitaciones
+$(document).on('change', '#tipoHabitacion', function() {
+    var idTipoHabitacion = $('#tipoHabitacion').val();
+    var idHotel = $('#idHotel').val();
+    console.log(idTipoHabitacion);
+    console.log(idHotel);
+    $.ajax({
+            url: '../../Vista/IUListaHabitacionAjax.php',
+            type: 'POST',
+            datatype: 'html',
+            //nombreArticulo, es el que va justamente a la pagina: 'IUListaDeArticulos.php' 
+            data: { idTipoHabitacion: idTipoHabitacion, idHotel: idHotel }
+        })
+        .done(function(resultado) {
+            console.log(resultado);
+            if (resultado === '') {
+                $("#habitacion option").remove();
+
+            } else {
+                $("#habitacion option").remove();
+                $("#habitacion").html(resultado);
+            }
+        })
+});

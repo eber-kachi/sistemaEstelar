@@ -12,7 +12,7 @@ include_once('../../Vista/IUVistaSuperior.php');
         <!-- mandamos el id del cliente para actualizar -->
         <input type="hidden" name="idClienteActual" value="<?php echo $datosCliente['idCliente']; ?>">
         <div class="row d-flex align-items-end ">
-            <div class="col  ">
+            <div class="col">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -25,12 +25,11 @@ include_once('../../Vista/IUVistaSuperior.php');
                                 ?>
                                 <option value="<?php echo $datosHotel->getIdHotel(); ?>" selected> <?php echo $datosHotel->getNombre(); ?></option>
                             <?php
-
-                        } else {
-                            ?>
+                            } else {
+                                ?>
                                 <option value="<?php echo $datosHotel->getIdHotel(); ?>"> <?php echo $datosHotel->getNombre(); ?></option>
                             <?php }
-                    } ?>
+                        } ?>
                     </select>
                 </div>
             </div>

@@ -25,7 +25,7 @@ class BDBuscadorHabitacion
                 $objetoHabitacion->setIdHotel($habitacion['idHotel']);
                 $objetoHabitacion->setIdTipoHabitacion($habitacion['idTipoHabitacion']);
                 $objetoHabitacion->setNombre($habitacion['nombre']);
-                $objetoHabitacion->setPrecio($habitacion['precio']);
+                // $objetoHabitacion->setPrecio($habitacion['precio']);
                 $objetoHabitacion->setDescripcion($habitacion['descripcion']);
                 $listaDehabitaciones[$i] = $objetoHabitacion;
                 $i++;
@@ -41,5 +41,32 @@ class BDBuscadorHabitacion
             exit();
             return false;
         };
+    }
+    public function listarTipoHabitacion()
+    {
+        $sqlListarTipoHabitaciones = "call listarTipoHabitaciones();";
+
+        $cmd = $this->conexion->prepare($sqlListarTipoHabitaciones);
+        $cmd->execute();
+        $listaTipoHabitaciones = $cmd->fetchAll();
+        if ($listaTipoHabitaciones) {
+            return $listaTipoHabitaciones;
+        } else {
+            return null;
+        }
+    }
+    public function listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion($idHotel, $idTipoHabitacion)
+    {
+        $sqlListarHabitaciones = "call listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(:idHotel,:idTipoHabitacion);";
+        $cmd = $this->conexion->prepare($sqlListarHabitaciones);
+        $cmd->bindParam(':idHotel', $idHotel);
+        $cmd->bindParam(':idTipoHabitacion', $idTipoHabitacion);
+        $cmd->execute();
+        $listaHabitaciones = $cmd->fetchAll();
+        if ($listaHabitaciones) {
+            return $listaHabitaciones;
+        } else {
+            return null;
+        }
     }
 }

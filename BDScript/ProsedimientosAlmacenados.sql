@@ -135,15 +135,19 @@ delimiter //
 create or replace  procedure listarHabitacionesSinReservaSegunIdHotel(in idHotel_ int )
   begin
 
-  select *
+  select h.idHotel, ht.idHabitacion,t.idTipoHabitacion, ht.nombre,ht.descripcion
   from hotel h inner join habitacion ht on h.idHotel = ht.idHotel
       and h.idHotel=idHotel_
-      join reserva r on ht.idHabitacion = r.idHabitacion
-      where r.activo=0;
+      join reserva r on ht.idHabitacion = r.idHabitacion join tipohabitacion t on ht.idTipoHabitacion = t.idTipoHabitacion
+      where r.activo=0 ;
   end //
 delimiter //
-
-create or replace  procedure listarHabitacionesSinReservaSegunIdHotel(in idHotel_ int )
+select *
+  from hotel h inner join habitacion ht on h.idHotel = ht.idHotel
+      and h.idHotel=1
+      join reserva r on ht.idHabitacion = r.idHabitacion join tipohabitacion t on ht.idTipoHabitacion = t.idTipoHabitacion
+      where r.activo=0 and  t.idTipoHabitacion=1 ;
+create or replace  procedure listarHabitacionesConReservaSegunIdHotel(in idHotel_ int )
   begin
   select *
   from hotel h inner join habitacion ht on h.idHotel = ht.idHotel
@@ -152,4 +156,26 @@ create or replace  procedure listarHabitacionesSinReservaSegunIdHotel(in idHotel
       where r.activo=1;
   end //
 
--- call listarHabitacionesSinReservaSegunIdHotel(1)
+call listarHabitacionesSinReservaSegunIdHotel(1);
+call listarHabitacionesConReservaSegunIdHotel(1);
+
+delimiter //
+create or replace procedure listarTipoHabitaciones()
+  begin
+    select idTipoHabitacion, nombre
+    from tipohabitacion;
+  end //
+
+  call listarTipoHabitaciones();
+
+delimiter  //
+create or replace procedure  listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(in idHotel_ int ,in idTipoHabitacion_ int )
+  begin
+    select h.idHabitacion,h.nombre
+    from tipohabitacion t inner join habitacion h on t.idTipoHabitacion = h.idTipoHabitacion
+    and t.idTipoHabitacion=idTipoHabitacion_ join hotel hl on h.idHotel = hl.idHotel
+    and hl.idHotel=idHotel_ join reserva r on h.idHabitacion = r.idHabitacion
+    and r.activo=0
+    order by h.nombre;
+  end //
+ call listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(1,1);
