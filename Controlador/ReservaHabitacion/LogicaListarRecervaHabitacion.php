@@ -12,10 +12,11 @@ session_start();
 
 $conexion = new Conexion();
 $objetoBDBuscadorCliente = new BDBuscadorCliente();
+$objetoBDBuscadorHotel = new BDBuscadorHotel();
 $objetoBDBuscadorHabitacion = new BDBuscadorHabitacion();
 $clienteResultado = $objetoBDBuscadorCliente->datosClientePorId($_SESSION['idCliente']);
 $listaTipoHabitaciones = $objetoBDBuscadorHabitacion->listarTipoHabitacion();
-$listaHabitaciones = $objetoBDBuscadorHabitacion->listarHabitacionesSinReservaSegunIdHotel($clienteResultado['idHotel']);
+$Hotel = $objetoBDBuscadorHotel->listaDeHotelePorId($clienteResultado['idHotel']);
 
 // var_dump($clienteResultado);
 // echo "-------------------";

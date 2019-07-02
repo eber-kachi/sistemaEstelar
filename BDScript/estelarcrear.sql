@@ -108,7 +108,7 @@ FOREIGN KEY(idHotel) REFERENCES hotel(idHotel) ON UPDATE CASCADE ON DELETE CASCA
 create table reserva(
 idReserva int AUTO_INCREMENT PRIMARY KEY,
 idHabitacion int not null,
-idUsuario int not null,
+idUsuario int ,
 idAgenteTuristico int,
 fechaInicio date not null,
 fechaFin date not null,

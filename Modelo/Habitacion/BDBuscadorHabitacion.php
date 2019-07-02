@@ -25,7 +25,7 @@ class BDBuscadorHabitacion
                 $objetoHabitacion->setIdHotel($habitacion['idHotel']);
                 $objetoHabitacion->setIdTipoHabitacion($habitacion['idTipoHabitacion']);
                 $objetoHabitacion->setNombre($habitacion['nombre']);
-                // $objetoHabitacion->setPrecio($habitacion['precio']);
+                $objetoHabitacion->setPrecio($habitacion['precio']);
                 $objetoHabitacion->setDescripcion($habitacion['descripcion']);
                 $listaDehabitaciones[$i] = $objetoHabitacion;
                 $i++;
@@ -65,6 +65,20 @@ class BDBuscadorHabitacion
         $listaHabitaciones = $cmd->fetchAll();
         if ($listaHabitaciones) {
             return $listaHabitaciones;
+        } else {
+            return null;
+        }
+    }
+    public function getPrecioHabitacionId($idHabitacion)
+    {
+        $sqlListaHabitacionPrecio = "SELECT precio
+                                    FROM habitacion WHERE idHabitacion=:idHabitacion";
+        $cmd = $this->conexion->prepare($sqlListaHabitacionPrecio);
+        $cmd->bindParam(':idHabitacion', $idHabitacion);
+        $cmd->execute();
+        $registroConsulta = $cmd->fetch(\PDO::FETCH_ASSOC);
+        if ($registroConsulta) {
+            return $registroConsulta;
         } else {
             return null;
         }

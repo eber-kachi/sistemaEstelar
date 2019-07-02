@@ -24,6 +24,5 @@ function calculaTiempo($fechaInicio, $fechaFin)
     foreach ($interval as $valor) {
         $tiempo[] = $valor;
     }
-
     return $tiempo;
 }

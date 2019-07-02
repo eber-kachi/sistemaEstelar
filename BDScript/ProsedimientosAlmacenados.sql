@@ -70,11 +70,9 @@ end
 -- CALL  datosClientePorId(3);
 
 DELIMITER //
-create or replace procedure verificaExisteCi
-(in CI VARCHAR
-(25))
+create or replace procedure verificaExisteCi(in CI VARCHAR(25))
 begin
-  select ci, primerNombre
+  select idCliente,apellidoPaterno,apellidoPaterno,primerNombre,segundoNombre,ci
   from cliente
   where ci=CI;
 
@@ -134,8 +132,7 @@ where c.idCliente=3;
 delimiter //
 create or replace  procedure listarHabitacionesSinReservaSegunIdHotel(in idHotel_ int )
   begin
-
-  select h.idHotel, ht.idHabitacion,t.idTipoHabitacion, ht.nombre,ht.descripcion
+  select h.idHotel, ht.idHabitacion,t.idTipoHabitacion, ht.nombre,ht.precio,ht.descripcion
   from hotel h inner join habitacion ht on h.idHotel = ht.idHotel
       and h.idHotel=idHotel_
       join reserva r on ht.idHabitacion = r.idHabitacion join tipohabitacion t on ht.idTipoHabitacion = t.idTipoHabitacion
@@ -171,7 +168,7 @@ create or replace procedure listarTipoHabitaciones()
 delimiter  //
 create or replace procedure  listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(in idHotel_ int ,in idTipoHabitacion_ int )
   begin
-    select h.idHabitacion,h.nombre
+    select h.idHabitacion,h.nombre, h.precio
     from tipohabitacion t inner join habitacion h on t.idTipoHabitacion = h.idTipoHabitacion
     and t.idTipoHabitacion=idTipoHabitacion_ join hotel hl on h.idHotel = hl.idHotel
     and hl.idHotel=idHotel_ join reserva r on h.idHabitacion = r.idHabitacion
@@ -179,3 +176,6 @@ create or replace procedure  listarTipoHabitacionesLibresSegunIdHotelIdTipoHabit
     order by h.nombre;
   end //
  call listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(1,1);
+
+INSERT INTO clientereserva(idReserva, idCliente, esTitular)
+                          VALUES (:idReserva,:idCliente,:esTitular);

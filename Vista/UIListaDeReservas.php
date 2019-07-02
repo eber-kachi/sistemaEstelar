@@ -23,6 +23,7 @@
 
                 <input type="hidden" id="idHotel" name="idHotel" value="<?php echo $clienteResultado['idHotel'];  ?>">
                 <input type="hidden" name="reservaPersonal" value="1">
+                <input type="hidden" id="TotalDiasActual" name="TotalDiasActual" value="">
                 <input type="hidden" name="activo" value="1">
                 <input type="hidden" name="reservaOnline" value="0">
                 <input type="hidden" name="idCliente" value="<?php echo $clienteResultado['idCliente'];  ?>">
@@ -33,18 +34,18 @@
                         <div class="col-1"></div>
                         <div class="col ">
                             <div class="form-group ">
-                                <label class="control-label " for="hotel"><?php echo 'Nombre del Hotelllllll..' ?></label>
+                                <label class="control-label " for="hotel"><?php echo $Hotel['nombre']; ?></label>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col col-4">
+                        <div class="col col-5">
                             <div class="form-group ">
-                                <p> <strong>Cliente: </strong><?php echo $clienteResultado['primerNombre']; ?> </p>
+                                <p> <strong>Cliente: </strong><?php echo $clienteResultado['apellidoPaterno'] . " " . $clienteResultado['apellidoMaterno'] . " " . $clienteResultado['segundoNombre'] . " " . $clienteResultado['primerNombre'];  ?> </p>
                             </div>
                         </div>
-                        <div class="col col-8"></div>
+                        <div class="col col-7"></div>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -55,6 +56,7 @@
                                 <select class="custom-select" id="tipoHabitacion" name="tipoHabitacion" require>
                                     <?php
                                     $estado = true;
+
                                     foreach ($listaTipoHabitaciones as $tipoHabitacion) {
                                         if ($estado) {
                                             ?>
@@ -63,6 +65,7 @@
                                             $estado = false;
                                         } else {
                                             ?>
+
                                             <option value="<?php echo $tipoHabitacion['idTipoHabitacion'];  ?>"> <?php echo  $tipoHabitacion['nombre']; ?></option>
                                         <?php }
                                     } ?>
@@ -97,6 +100,8 @@
                                 </label>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col">
                             <label class="control-label" for="totalDias">Total De Dias:</label>
                             <p id="TotalDias"></p>

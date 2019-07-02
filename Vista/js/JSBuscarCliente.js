@@ -105,15 +105,3 @@ $(document).on('change', '#tipoHabitacion', function() {
             }
         })
 });
-/// sacar la diferencia de  dias de la fecha de recerva habitacion cliente
-$(document).on('change', '#fechaFin', function() {
-
-    var fechaFin = $('#fechaFin').val();
-    var fechaInicio = $('#fechaInicio').val();
-    // console.log(fechaFin);
-    // console.log(fechaInicio);
-
-
-
-
-});
