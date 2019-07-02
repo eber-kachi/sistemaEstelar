@@ -4,7 +4,7 @@ require '../../Modelo/Conexion.php';
 require '../../Modelo/Cliente/BDBuscadorCliente.php';
 require '../../Modelo/Cliente/BDManejadorCliente.php';
 require '../../Modelo/Hotel/BDBuscadorHotel.php';
-print_r($_REQUEST);
+//print_r($_REQUEST);
 $conexion = new Conexion();
 $objetoLogicaBuscadorCliente = new BDBuscadorCliente();
 $objetoLogicaBuscadorHotel = new BDBuscadorHotel();
@@ -14,6 +14,15 @@ if (isset($_REQUEST['idCliente']) && $paso == true) {
     $listaDehoteles = $objetoLogicaBuscadorHotel->listaDeHoteles();
     $HotelId = $_REQUEST['idHotel'];
     $paso = false;
+    // $Nombre = $datosCliente['primerNombre'][0];
+    // // //$Nombre = $Nombre[0];
+    // // $apellidoP = $datosCliente['apellidoPaterno'];
+    // $ci = $datosCliente['ci'];
+    $usuarioCreado = trim($datosCliente['primerNombre'][0]) . trim($datosCliente['apellidoPaterno']) . trim($datosCliente['ci']);
+    $usuarioCreado = mb_strtolower($usuarioCreado, 'UTF-8');
+
+    $contraseniaCreado = mb_strtolower($datosCliente['ci'], 'UTF-8');;
+
     require_once '../../Vista/IUActualizarCliente.php';
 } else {
     $objetoCliente = new Cliente();
@@ -23,7 +32,7 @@ if (isset($_REQUEST['idCliente']) && $paso == true) {
     $segundoNombre = mb_convert_case($_REQUEST['segundoNombre'], MB_CASE_TITLE, "UTF-8");
     $apellidoPaterno = mb_convert_case($_REQUEST['apellidoPaterno'], MB_CASE_TITLE, "UTF-8");
     $apellidoMaterno = mb_convert_case($_REQUEST['apellidoMaterno'], MB_CASE_TITLE, "UTF-8");
-    $telefono = (int)$_REQUEST['telefono'];
+    $telefono = (int) $_REQUEST['telefono'];
     $genero = strtoupper($_REQUEST['genero']);
 
     $objetoCliente->setIdCliente($_REQUEST['idClienteActual']);

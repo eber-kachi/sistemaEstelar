@@ -11,24 +11,25 @@ class BDManejadorCliente
     public function registrarCliente(Cliente $objetoCliente)
     {
 
-        $sqlInsertarCliente = "INSERT into cliente ( idHotel, ci, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, telefono, genero, fechaNacimiento,usuario, activo)
-                                            values (:idHotel,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:telefono,:genero,:fechaNacimiento,:usuario,:activo);
+        $sqlInsertarCliente = "INSERT into cliente ( idHotel, ci, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, telefono, genero, fechaNacimiento,usuario, contrasenia ,activo)
+                                            values (:idHotel,:ci,:primerNombre,:segundoNombre,:apellidoPaterno,:apellidoMaterno,:telefono,:genero,:fechaNacimiento,:usuario,:contrasenia,:activo);
                                             ";
 
         //En php se necesita descargar los valores  del objeto, si lo hace de manera directa le saldra error.
         //var_dump($objetoCliente);
         $idCliente = $objetoCliente->getIdCliente();
-        $idHotel = (int)$objetoCliente->getIdHotel();
+        $idHotel = (int) $objetoCliente->getIdHotel();
         $ci = $objetoCliente->getCi();
         $primerNombre = $objetoCliente->getPrimerNombre();
         $segundoNombre = $objetoCliente->getSegundoNombre();
         $apellidoPaterno = $objetoCliente->getApellidoPaterno();
         $apellidoMaterno = $objetoCliente->getApellidoMaterno();
-        $telefono = (int)$objetoCliente->getTelefono();
+        $telefono = (int) $objetoCliente->getTelefono();
         $genero = $objetoCliente->getGenero();
         $fechaNacimiento = $objetoCliente->getFechaNacimiento();
         $usuario = $objetoCliente->getUsuario();
-        $activo = (int)$objetoCliente->getActivo();
+        $contrasenia = $objetoCliente->getContrasenia();
+        $activo = (int) $objetoCliente->getActivo();
 
 
 
@@ -44,6 +45,7 @@ class BDManejadorCliente
             $cmd->bindParam(':genero', $genero);
             $cmd->bindParam(':fechaNacimiento', $fechaNacimiento);
             $cmd->bindParam(':usuario', $usuario);
+            $cmd->bindParam(':contrasenia', $contrasenia);
             $cmd->bindParam(':activo', $activo);
             $cmd->execute();
             //retornando el ultimo ID del Articulo
@@ -78,18 +80,18 @@ class BDManejadorCliente
                                    :telefono,:genero,:fechaNacimiento,:usuario,:contrasenia,:activo )";
 
         $idCliente = $objetoCliente->getIdCliente();
-        $idHotel = (int)$objetoCliente->getIdHotel();
+        $idHotel = (int) $objetoCliente->getIdHotel();
         $ci = $objetoCliente->getCi();
         $primerNombre = $objetoCliente->getPrimerNombre();
         $segundoNombre = $objetoCliente->getSegundoNombre();
         $apellidoPaterno = $objetoCliente->getApellidoPaterno();
         $apellidoMaterno = $objetoCliente->getApellidoMaterno();
-        $telefono = (int)$objetoCliente->getTelefono();
+        $telefono = (int) $objetoCliente->getTelefono();
         $genero = $objetoCliente->getGenero();
         $fechaNacimiento = $objetoCliente->getFechaNacimiento();
         $usuario = $objetoCliente->getUsuario();
         $contrasenia = $objetoCliente->getContrasenia();
-        $activo = (int)$objetoCliente->getActivo();
+        $activo = (int) $objetoCliente->getActivo();
 
 
 

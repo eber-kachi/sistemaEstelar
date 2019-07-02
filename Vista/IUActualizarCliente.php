@@ -116,18 +116,34 @@ include_once('../../Vista/IUVistaSuperior.php');
                 <?php } ?>
 
             </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresar usuario" value="<?php echo $datosCliente['usuario'] ?>">
+            <?php if ($datosCliente['usuario'] == '' && $datosCliente['contrasenia'] == '') { ?>
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresar usuario" value="<?php echo $usuarioCreado; ?>">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md">
-                <div class="form-group">
-                    <label for="contrasenia">Contraseña</label>
-                    <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingrese contraseña" value="<?php echo $datosCliente['usuario'] ?>">
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingrese contraseña" value="<?php echo $contraseniaCreado; ?>">
+                    </div>
                 </div>
-            </div>
+            <?php } else { ?>
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresar usuario" value="<?php echo $datosCliente['usuario'] ?>">
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-group">
+                        <label for="contrasenia">Contraseña</label>
+                        <input type="password" class="form-control" name="contrasenia" id="contrasenia" placeholder="Ingrese contraseña" value="<?php echo $datosCliente['contrasenia'] ?>">
+                    </div>
+                </div>
+
+            <?php } ?>
         </div>
         <div class=" row">
             <div class="col">

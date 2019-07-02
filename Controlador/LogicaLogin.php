@@ -23,17 +23,19 @@ if (isset($_REQUEST['usuario']) && isset($_REQUEST['contrasenia'])) {
     } else if (!is_null($usuarioResultado)) {
         if ($usuarioResultado['nombre'] == 'Recepcionista' && $usuarioResultado['activo'] == '1') {
             //echo 'bien benido Recepcionista ';
-            require_once './Cliente/LogicaListarCliente.php';
+            echo " <script> alert(' Usuario Resepcionistas');location.href = './Cliente/LogicaListarCliente.php';</script> ";
         } else if ($usuarioResultado['nombre'] == 'Administrador' && $usuarioResultado['activo'] == '1') {
             echo 'bien benido Administrador ';
         } else {
-            echo 'verifica puede que el  usuario este de baja ';
+
+            echo " <script> alert(' verifica puede que el  usuario este de baja');location.href = ' ../index.html';</script> ";
         }
     } else {
         echo " <script> alert(' Usuario invalido');location.href = ' ../index.html';</script> ";
     }
 } else {
-    echo 'error...';
+    //echo 'Error...';
+    echo " <script> alert(' Error...');location.href = ' ../index.html';</script> ";
 }
 
 

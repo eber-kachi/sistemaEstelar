@@ -17,7 +17,7 @@ $primerNombre = mb_convert_case($_REQUEST['primerNombre'], MB_CASE_TITLE, "UTF-8
 $segundoNombre = mb_convert_case($_REQUEST['segundoNombre'], MB_CASE_TITLE, "UTF-8");
 $apellidoPaterno = mb_convert_case($_REQUEST['apellidoPaterno'], MB_CASE_TITLE, "UTF-8");
 $apellidoMaterno = mb_convert_case($_REQUEST['apellidoMaterno'], MB_CASE_TITLE, "UTF-8");
-$telefono = (int)$_REQUEST['telefono'];
+$telefono = (int) $_REQUEST['telefono'];
 $genero = strtoupper($_REQUEST['genero']);
 
 $objetoCliente->setIdHotel($_REQUEST['hotel']);
@@ -30,8 +30,9 @@ $objetoCliente->setTelefono($telefono);
 $objetoCliente->setGenero($genero);
 $objetoCliente->setFechaNacimiento($_REQUEST['fechaNacimiento']);
 $objetoCliente->setUsuario('');
+$objetoCliente->setContrasenia('');
 $objetoCliente->setActivo($_REQUEST['activo']);
-//}
+
 $objetoBDManejadorCliente->registrarCliente($objetoCliente);
 
 require_once "../../Vista/IUListaDeClientesConAjax.php";

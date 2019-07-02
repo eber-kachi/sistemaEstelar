@@ -1,6 +1,6 @@
 <?php
-echo 'terminado hasta aquaa';
-var_dump($_POST);
+// echo 'terminado hasta aquaa';
+// var_dump($_POST);
 require '../../Modelo/Conexion.php';
 require '../../Modelo/Reserva/Reserva.php';
 require '../../Modelo/Reserva/BDManejadorReserva.php';
@@ -29,7 +29,7 @@ if (!is_null($idReservaUltimo)) {
     $estado = $objetoBDManejadorReserva->RegistrarClienteReserva($idReservaUltimo, $_REQUEST['idCliente'], 1);
     if ($estado) {
         echo "se registro correctamente";
-        echo "";
+        echo "<script> alert(' se registro correctamente');location.href = ' ./LogicaListarRecervaHabitacion.php';</script> ";
     } else {
         echo "error al registrar ";
     }
