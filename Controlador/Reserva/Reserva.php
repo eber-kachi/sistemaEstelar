@@ -13,6 +13,7 @@ class Reserva
     private $activo;
     public function __construct()
     { }
+
     public function setIdReserva($idReserva)
     {
         $this->idReserva = $idReserva;
@@ -52,5 +53,45 @@ class Reserva
     public function setActivo($activo)
     {
         $this->activo = $activo;
+    }
+    public function getIdReserva()
+    {
+        return $this->idReserva;
+    }
+    public function getIdHabitacion()
+    {
+        return $this->idHabitacion;
+    }
+    public function getidUsuario()
+    {
+        return $this->idUsuario;
+    }
+    public function getIdAgenteTuristico()
+    {
+        return $this->idAgenteTuristico;
+    }
+    public function getFechaInicio()
+    {
+        return $this->fechaInicio;
+    }
+    public function getFechaFin()
+    {
+        return $this->fechaFin;
+    }
+    public function getmMontoTotal()
+    {
+        return $this->montoTotal;
+    }
+    public function getReservaPersonal()
+    {
+        return $this->reservaPersonal;
+    }
+    public function getReservaOnline()
+    {
+        return $this->reservaOnline;
+    }
+    public function getActivo()
+    {
+        return $this->activo;
     }
 }

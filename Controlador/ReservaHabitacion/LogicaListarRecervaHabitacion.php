@@ -7,8 +7,8 @@ require '../../Modelo/Habitacion/Habitacion.php';
 require '../../Modelo/Habitacion/BDBuscadorHabitacion.php';
 session_start();
 
-echo $_SESSION['star_login'];
-echo $_SESSION['idCliente'];
+// echo $_SESSION['star_login'];
+// echo $_SESSION['idCliente'];
 
 $conexion = new Conexion();
 $objetoBDBuscadorCliente = new BDBuscadorCliente();
@@ -20,14 +20,4 @@ $listaHabitaciones = $objetoBDBuscadorHabitacion->listarHabitacionesSinReservaSe
 // var_dump($clienteResultado);
 // echo "-------------------";
 //var_dump($listaHabitaciones);
-
-
-
-
-
-
-
-
-
-
 include '../../Vista/UIListaDeReservas.php';

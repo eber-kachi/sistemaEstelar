@@ -1,2 +1,3 @@
 <?php
-echo "logica recerva";
+echo 'terminado hasta aqui';
+var_dump($_POST);

@@ -12,21 +12,29 @@
     <title>estelar admin </title>
 
     <!-- Custom fonts for this template-->
+
+
     <link href="../../Vista/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+    <!-- styles date piker -->
+    <link rel="stylesheet" type="text/css" href="../../Vista/js/jquery-ui-1.12.1.custom/jquery-ui.css">
+
     <!-- Custom styles for this template-->
     <link href="../../Vista/css/sb-admin-2.min.css" rel="stylesheet">
     <script type="text/javascript" src="../../Vista/js/jquery-3.3.1.js"></script>
+
+    <script type="text/javascript" src="../../Vista/js/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
     <script type="text/javascript" src="../../Vista/js/JSBuscarCliente.js"></script>
     <script src="../../Vista/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/bdff4da44e.js"></script>
 
     <script type="text/javascript" src="../../Vista/js/app.js"></script>
-    <!-- styles date piker -->
-    <!-- <link rel="stylesheet" href="../../Vista/datepicker-bootstrap/css/bootstrap-datepicker.css"> -->
+
+
+
 
 </head>
+<a href="../../Vista/js/jquery-ui-1.12.1.custom/jquery-ui.css">wdWEF</a>
 
 <body id="page-top">
     <!-- Page Wrapper -->

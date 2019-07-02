@@ -1,4 +1,4 @@
-<?php include_once('../../Vista/IUVistaSuperior.php'); ?>
+<?php include_once('../../Vista/IUVistaSuperiorCliente.php'); ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Lista de Reservas</h1>
@@ -19,9 +19,13 @@
                 <h4 class="modal-title ">Registrar Reserva</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
-            <form action="" method="post" role="form ">
+            <form action="../../Controlador/ReservaHabitacion/LogicaRegistrarReservaHabitacion.php" method="post" role="form ">
+
                 <input type="hidden" id="idHotel" name="idHotel" value="<?php echo $clienteResultado['idHotel'];  ?>">
-                <input type="hidden" id="reservaPersonal" name="reservaPersonal" value="<?php echo $clienteResultado['reservaPersonal'];  ?>">
+                <input type="hidden" name="reservaPersonal" value="1">
+                <input type="hidden" name="activo" value="1">
+                <input type="hidden" name="reservaOnline" value="0">
+                <input type="hidden" name="idCliente" value="<?php echo $clienteResultado['idCliente'];  ?>">
                 <div class="modal-body ">
                     <div class="row d-flex align-items-end ">
                         <div class="col  ">
@@ -81,7 +85,7 @@
                         <div class="col">
                             <div class="form-group ">
                                 <label class="control-label " for="fecha Inicio">Fecha Inicio <i class="fas fa-calendar-week"></i> </label>
-                                <input type="date" class="form-control " id="fechaInicio" name="fechaInicio" min="11-02-1940" required>
+                                <input type="date" class="form-control input-sm" id="fechaInicio" name="fechaInicio" min="11-02-1940" required>
                             </div>
                         </div>
                         <div class="col-1"></div>
@@ -113,13 +117,5 @@
 </div>
 <!-- Modal fin de registrar recervas  -->
 
-<?php
 
-echo "-------------------***-------------------";
-if (isset($_POST)) {
-
-    var_dump($_POST);
-}
-?>
-
-<?php include_once('../../Vista/IUVistaInferior.php'); ?>
+<?php include_once('../../Vista/IUVistaInferiorCliente.php'); ?>

@@ -3,6 +3,7 @@ $(document).ready(function() {
     //$("#alerta div #mensajeCi").css("display", "none;");
     $('#buscarCliente').focus();
     // console.log('nombreClientee');
+
 });
 
 function ListarClientes(nombreClientee) {
@@ -103,4 +104,16 @@ $(document).on('change', '#tipoHabitacion', function() {
                 $("#habitacion").html(resultado);
             }
         })
+});
+/// sacar la diferencia de  dias de la fecha de recerva habitacion cliente
+$(document).on('change', '#fechaFin', function() {
+
+    var fechaFin = $('#fechaFin').val();
+    var fechaInicio = $('#fechaInicio').val();
+    // console.log(fechaFin);
+    // console.log(fechaInicio);
+
+
+
+
 });
