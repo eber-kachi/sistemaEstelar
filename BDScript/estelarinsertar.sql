@@ -93,18 +93,18 @@ values
 insert into hotel
       (idDepartamento,nombre,telefono,direccion)
 values
-      (1, 'Estelar La Paz 1', 23456789, 'Ballivian Nro 345');
+      (2, 'Estelar La Paz 1', 23456789, 'Ballivian Nro 345');
 
 insert into hotel
       (idDepartamento,nombre,telefono,direccion)
 values
-      (1, 'Estelar La Paz 2', 24567800, 'La Seja Nro 888');
+      (2, 'Estelar La Paz 2', 24567800, 'La Seja Nro 888');
 
 -- Santa Cruz 
 insert into hotel
       (idDepartamento,nombre,telefono,direccion)
 values
-      (1, 'Estelar Santa Cruz 1', 37878788, 'Primer Anillo Nro 890');
+      (3, 'Estelar Santa Cruz 1', 37878788, 'Primer Anillo Nro 890');
 
 -- historialHotel
 insert into historialHotel
@@ -177,6 +177,71 @@ insert into habitacion
       (idHotel,idTipoHabitacion,nombre,precio,descripcion)
 values(1, 2, '3A-7', 500, 'Es una habitacion con dos camas comodas de plaza y media .....');
 
+-- Habitaciones - santa Cruz
+-- primer piso
+-- suite
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 1, '1A-1', 700, 'Es una habitacion lujosa con una cama amplia de 2 plazas y media, tiene sala donde realizar sus reuniones, las ventanas dan hacia el jardin central contando con una vista agradable hacia la naturaleza.');
+-- individual
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '1A-2', 300, 'Cuenta con una cama de 1 plaza con baño privado....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '1A-3', 300, 'Cuenta con una cama de 1 plaza con baño privado....');
+-- doble
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 2, '1A-4', 500, 'Es una habitacion con dos camas comodas de plaza y media, su bano privado .......');
+-- individual
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '1A-5', 300, 'Cuenta con una cama de 1 plaza con baño privado....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '1A-6', 300, 'Cuenta con una cama de 1 plaza con baño privado....');
+
+-- segundo piso
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 5, '2A-1', 1200, 'Habitacion para 6 personas, son tres habitaciones cada uno de ellos con 2 camas .......');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 4, '2A-2', 500, 'Habitacion para 2 personas, una cama de 2 plazas ...........');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 5, '2A-3', 1200, 'Habitacion para 6 personas, son tres habitaciones cada uno de ellos con 2 camas .......');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 4, '2A-4', 500, 'Habitacion para 2 personas, una cama de 2 plazas ...........');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 5, '2A-5', 1200, 'Habitacion para 6 personas, son tres habitaciones cada uno de ellos con 2 camas .......');
+
+-- tercer piso
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '3A-1', 300, 'Una habitacion con baño privado .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '3A-2', 300, 'Una habitacion con baño privado .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '3A-3', 300, 'Una habitacion con baño privado .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '3A-4', 300, 'Una habitacion con baño privado .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 3, '3A-5', 300, 'Una habitacion con baño privado .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 2, '3A-6', 500, 'Es una habitacion con dos camas comodas de plaza y media .....');
+insert into habitacion
+      (idHotel,idTipoHabitacion,nombre,precio,descripcion)
+values(3, 2, '3A-7', 500, 'Es una habitacion con dos camas comodas de plaza y media .....');
+
 
 
 -- usuario
@@ -201,19 +266,19 @@ values(1, 1, '33', 'Brenda', 'Cesilia', 'Panozo', 'Ontiveros', 'bpanoso', 'bpano
 -- agenteTuristico
 -- Viajero Club
 insert into agenteTuristico
-      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,activo)
-values(1, '3001', 'Rolando', 'Guardia', 1);
+      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,usuario,contrasenia,activo)
+values(1, '3001', 'Rolando', 'Guardia','3001','222', 1);
 insert into agenteTuristico
-      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,activo)
-values(1, '3002', 'Natalia', 'Cervantes', 1);
+      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,usuario,contrasenia,activo)
+values(1, '3002', 'Natalia', 'Cervantes','','', 1);
 -- Delicias tours
 insert into agenteTuristico
-      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,activo)
-values(2, '3003', 'Julio', 'Cervantes', 1);
+      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,usuario,contrasenia,activo)
+values(2, '3003', 'Julio', 'Cervantes','','', 1);
 -- Tropical Tours
 insert into agenteTuristico
-      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,activo)
-values(3, '3004', 'Jimmy', 'Vargas', 1);
+      (idAgencia,ciUsuario,primerNombre,apellidoPaterno,usuario,contrasenia,activo)
+values(3, '3004', 'Jimmy', 'Vargas','','', 1);
 
 -- Cliente
 -- Familia
@@ -225,14 +290,14 @@ values
       (1, '34565-CBBA', 'Eber', '', 'Perez', 'Rojas', 70854196, 'F', '1998-01-01', '34565PEREZ', '1234', 1),
       (1, '1001', 'Pedro', '', 'Tarqui', '', 70780001, 'M', '1970-09-24', '', '', 1),
 
-      (1, '1002', 'Amelia', 'Ignasia', 'Rosales', 'Cardozo', 70780002, 'F', '1971-01-09', '', '', 1),
+      (1, '69475-SCZ', 'Amelia', 'Ignasia', 'Rosales', 'Cardozo', 70780002, 'F', '1971-01-09', '', '', 1),
 
       (1, '1003', 'Gael', 'Pedro', 'Tarqui', 'Rosales', 70780003, 'M', '1997-07-29', '', '', 1),
       (1, '1004', 'Javier', 'Ignasio', 'Tarqui', 'Rosales', 70780001, 'M', '1997-07-29', '', '', 1),
 
-      (1, '1005', 'Karina', 'Amelia', 'Tarqui', 'Rosales', 70780001, 'F', '1999-01-15', '', '', 1),
+      (1, '69475936-SCZ', 'Karina', 'Amelia', 'Tarqui', 'Rosales', 70780001, 'F', '1999-01-15', '', '', 1),
 
-      (1, '1006', 'Soraya', '', 'Tarqui', 'Rosales', 70780001, 'F', '2002-05-20', '', '', 1);
+      (1, '18762413-LP', 'Soraya', '', 'Tarqui', 'Rosales', 70780001, 'F', '2002-05-20', '', '', 1);
 
 
 -- Diferentes Clientes
@@ -327,11 +392,11 @@ values(6, 7, 0);
 insert into cliente
       ( idHotel, ci, primerNombre, segundoNombre, apellidoPaterno, apellidoMaterno, telefono, genero, fechaNacimiento, usuario,contrasenia, activo)
 VALUES
-      (6, '2007', 'Natali', 'NULL', 'Salvatierra', 'Condori', 61944368, 'F', '1990-10-21', '', '', 1),
-      (6, '2008', 'Jhilda', 'NULL', 'Cordova', 'Mollo', 61741900, 'F', '1999-01-20', '', '', 1),
-      (6, '2009', 'Noemi', 'NULL', 'Huayta', 'Rivas', 60741008, 'F', '1999-01-20', '', '', 1),
-      (6, '2010', 'Neydy', 'NULL', 'Apaza', 'Mamani', 60881968, 'F', '1999-12-20', '', '', 1),
-      (6, '2011', 'Maeba', 'NULL', 'Fernandez', 'Mamani', 60001968, 'F', '1972-09-20', '', '', 1);
+      (6, '2007', 'Natali', null, 'Salvatierra', 'Condori', 61944368, 'F', '1990-10-21', '', '', 1),
+      (6, '2008', 'Jhilda', null, 'Cordova', 'Mollo', 61741900, 'F', '1999-01-20', '', '', 1),
+      (6, '2009', 'Noemi', null, 'Huayta', 'Rivas', 60741008, 'F', '1999-01-20', '', '', 1),
+      (6, '2010', 'Neydy', null, 'Apaza', 'Mamani', 60881968, 'F', '1999-12-20', '', '', 1),
+      (6, '2011', 'Maeba', null, 'Fernandez', 'Mamani', 60001968, 'F', '1972-09-20', '', '', 1);
 
 
 

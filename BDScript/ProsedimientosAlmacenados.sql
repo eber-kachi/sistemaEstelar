@@ -178,8 +178,15 @@ create or replace procedure  listarTipoHabitacionesLibresSegunIdHotelIdTipoHabit
  call listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(1,1);
 
 
-select *
-from usuario u inner join reserva r on u.idUsuario = r.idUsuario
-    and u.idUsuario=2
-join agenteturistico a on r.idAgenteTuristico = a.idAgenteTuristico
-join agencia a2 on a.idAgencia = a2.idAgencia
+delimiter  //
+create or replace procedure verificaUsuarioContraseniaAgenteTuristico(in usuario_ varchar(15),contrasenia_ varchar(15))
+  begin
+    select idAgenteTuristico,usuario,contrasenia,activo
+    from  agenteturistico
+    where usuario=usuario_ and contrasenia=contrasenia_;
+  end //
+
+select c.idCliente,concat_ws(' ',c.apellidoPaterno,c.apellidoMaterno,c.segundoNombre,c.primerNombre)as nombreCompleto
+from hotel h inner join cliente c on h.idHotel = c.idHotel
+and h.idHotel=6 and c.activo=1
+order by c.apellidoPaterno;

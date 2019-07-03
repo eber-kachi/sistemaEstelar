@@ -90,6 +90,8 @@ primerNombre VARCHAR(15) NOT NULL,
 segundoNombre VARCHAR(15), 
 apellidoPaterno VARCHAR(15) NOT NULL, 
 apellidoMaterno VARCHAR(15),
+usuario VARCHAR(15),
+contrasenia VARCHAR(15),
 activo bool NOT NULL,
 FOREIGN KEY(idAgencia) REFERENCES agencia(idAgencia) ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE=InnoDB;
@@ -98,7 +100,7 @@ create table habitacion(
 idHabitacion int AUTO_INCREMENT PRIMARY KEY,
 idHotel int not null,
 idTipoHabitacion int not null,
-nombre VARCHAR(15) UNIQUE,
+nombre VARCHAR(15) ,
 precio float not null,
 descripcion BLOB,
 FOREIGN KEY(idTipoHabitacion) REFERENCES tipoHabitacion(idTipoHabitacion) ON UPDATE CASCADE ON DELETE CASCADE,

@@ -2,14 +2,17 @@
 require '../Modelo/Conexion.php';
 require '../Modelo/Cliente/BDBuscadorCliente.php';
 require '../Modelo/Usuario/BDBuscadorUsuario.php';
+require '../Modelo/agenteTuristico/BDBuscadorAgenteTuristico.php';
 session_start();
 $conexion = new Conexion();
 if (isset($_REQUEST['usuario']) && isset($_REQUEST['contrasenia'])) {
     //verificar si es cliente 
     $objetoBDBuscadorCliente = new BDBuscadorCliente();
     $objetoBDBuscadorUsuario = new BDBuscadorUsuario();
+    $objetoBDBuscadorAgenteTuristico = new BDBuscadorAgenteTuristico();
     $clienteResultado = $objetoBDBuscadorCliente->verificaUsuarioContraseniaCliente($_REQUEST['usuario'], $_REQUEST['contrasenia']);
     $usuarioResultado = $objetoBDBuscadorUsuario->verificaUsuarioContraseniaUsuario($_REQUEST['usuario'], $_REQUEST['contrasenia']);
+    $agenteTuristicoResultado = $objetoBDBuscadorAgenteTuristico->verificaUsuarioContraseniaUsuario($_REQUEST['usuario'], $_REQUEST['contrasenia']);
     if (!is_null($clienteResultado)) {
 
         if ($clienteResultado['activo'] == '1') {
@@ -32,6 +35,15 @@ if (isset($_REQUEST['usuario']) && isset($_REQUEST['contrasenia'])) {
         } else {
 
             echo " <script> alert(' verifica puede que el  usuario este de baja');location.href = ' ../index.html';</script> ";
+        }
+    } else if (!is_null($agenteTuristicoResultado)) {
+        if ($agenteTuristicoResultado['activo'] == '1') {
+            $_SESSION['star_login'] = $agenteTuristicoResultado['usuario'];
+            $_SESSION['idAgenteTuristico'] = $agenteTuristicoResultado['idAgenteTuristico'];
+            echo " <script> alert(' Usuario Resepcionistas');location.href = './ReservaHabitacion/LogicaListarReservaHabitacionAgenteTuristico.php';</script> ";
+        } else {
+            //echo 'verifica puede que el  cliente este de baja ';
+            echo " <script> alert(' verifica puede que el  cliente este de baja ');location.href = ' ../index.html';</script> ";
         }
     } else {
         echo " <script> alert(' Usuario invalido');location.href = ' ../index.html';</script> ";

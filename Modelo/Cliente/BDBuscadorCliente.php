@@ -182,4 +182,26 @@ class BDBuscadorCliente
             return false;
         };
     }
+    public function listaDeClientesActivoPorIdHotel($idHotels)
+    {
+        $sqlBuscarClientes = " SELECT c.idCliente,concat_ws(' ',c.apellidoPaterno,c.apellidoMaterno,c.segundoNombre,c.primerNombre)as nombreCompleto
+                                    from hotel h inner join cliente c on h.idHotel = c.idHotel
+                                    and h.idHotel=:idHotels 
+                                    order by c.apellidoPaterno";
+        try {
+            $cmd = $this->conexion->prepare($sqlBuscarClientes);
+            $cmd->bindParam(':idHotels', $idHotels);
+            $cmd->execute();
+            $registroConsulta = $cmd->fetchAll();
+            if ($registroConsulta) {
+                return $registroConsulta;
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            echo 'ERROR: No se logro actualizar estado Cliente - ' . $e->getMesage();
+            exit();
+            return false;
+        }
+    }
 }

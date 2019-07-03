@@ -1,4 +1,5 @@
 <?php include_once('../../Vista/IUVistaSuperior.php'); ?>
+
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Lista de Reservas</h1>
     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -19,12 +20,12 @@
             </div>
             <form action="../../Controlador/ReservaHabitacion/LogicaRegistrarReservaHabitacion.php" method="post" role="form ">
 
-                <input type="hidden" id="idHotel" name="idHotel" value="<?php echo $clienteResultado['idHotel'];  ?>">
-                <input type="hidden" name="reservaPersonal" value="1">
+                <input type="hidden" id="idHotel" name="idHotel" value="<?php echo $clienteResultado[0]->getIdHotel(); ?>">
+                <input type="hidden" name="reservaPersonal" value="0">
                 <input type="hidden" id="TotalDiasActual" name="TotalDiasActual" value="">
                 <input type="hidden" name="activo" value="1">
                 <input type="hidden" name="reservaOnline" value="0">
-                <input type="hidden" name="idCliente" value="<?php echo $clienteResultado['idCliente'];  ?>">
+                <input type="hidden" name="idUsuario" value="<?php echo $idUsuario; ?>">
                 <div class="modal-body ">
                     <div class="row d-flex align-items-end ">
                         <div class="col  ">
@@ -38,12 +39,31 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col col-5">
-                            <div class="form-group ">
-                                <p> <strong>Cliente: </strong><?php echo $clienteResultado['apellidoPaterno'] . " " . $clienteResultado['apellidoMaterno'] . " " . $clienteResultado['segundoNombre'] . " " . $clienteResultado['primerNombre'];  ?> </p>
+                        <div class="col col-9">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="tipo habitacion">Clientes </label>
+                                </div>
+                                <select class="custom-select" name="idCliente" require>
+                                    <?php
+                                    $estado = true;
+
+                                    foreach ($clienteResultado as $clientes) {
+                                        if ($estado) {
+                                            ?>
+                                            <option value="" selected> Selecciona un cliente </option>
+                                            <?php
+                                            $estado = false;
+                                        } else {
+                                            ?>
+                                            <option value="<?php echo $clientes->getIdCliente();  ?>"> <?php echo  $clientes->getApellidoPaterno() . $clientes->getApellidoMaterno() . $clientes->getSegundoNombre() . $clientes->getPrimerNombre(); ?></option>
+                                        <?php }
+                                    } ?>
+                                </select>
                             </div>
+
                         </div>
-                        <div class="col col-7"></div>
+                        <div class="col col-3"></div>
                     </div>
                     <div class="row">
                         <div class="col">
@@ -63,7 +83,6 @@
                                             $estado = false;
                                         } else {
                                             ?>
-
                                             <option value="<?php echo $tipoHabitacion['idTipoHabitacion'];  ?>"> <?php echo  $tipoHabitacion['nombre']; ?></option>
                                         <?php }
                                     } ?>

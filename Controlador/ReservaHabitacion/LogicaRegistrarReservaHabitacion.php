@@ -47,13 +47,15 @@ if (isset($_REQUEST['idUsuario']) != '') {
     $objetoReserva->setReservaOnline($_REQUEST['reservaOnline']);
     $objetoReserva->setActivo($_REQUEST['activo']);
 }
+
 $idReservaUltimo = $objetoBDManejadorReserva->registrarReserva($objetoReserva);
 if (!is_null($idReservaUltimo)) {
     $estado = $objetoBDManejadorReserva->RegistrarClienteReserva($idReservaUltimo, $_REQUEST['idCliente'], 1);
     if ($estado) {
-        echo "se registro correctamente";
+        //echo "se registro correctamente";
         echo "<script> alert(' se registro correctamente');location.href = ' ./LogicaListarRecervaHabitacion.php';</script> ";
     } else {
-        echo "error al registrar ";
+        //echo "error al registrar ";
+        echo "<script> alert(' error al registrar ');location.href = ' ./LogicaListarRecervaHabitacion.php';</script> ";
     }
 }

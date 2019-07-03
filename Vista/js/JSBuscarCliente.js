@@ -85,8 +85,8 @@ $(document).on('keyup', '#verificarCiInput', function() {
 $(document).on('change', '#tipoHabitacion', function() {
     var idTipoHabitacion = $('#tipoHabitacion').val();
     var idHotel = $('#idHotel').val();
-    console.log(idTipoHabitacion);
-    console.log(idHotel);
+    // console.log(idTipoHabitacion);
+    // console.log(idHotel);
     $.ajax({
             url: '../../Vista/IUListaHabitacionAjax.php',
             type: 'POST',
@@ -103,5 +103,28 @@ $(document).on('change', '#tipoHabitacion', function() {
                 $("#habitacion option").remove();
                 $("#habitacion").html(resultado);
             }
+        });
+});
+$(document).on('change', '#idHotelBuscar', function() {
+    let idtipoHotel = $('#idHotelBuscar').val();
+    console.log(idtipoHotel);
+    $.ajax({
+            url: '../../Vista/IUListaHabitacionAjax.php',
+            type: 'POST',
+            datatype: 'html',
+            //nombreArticulo, es el que va justamente a la pagina: 'IUListaDeArticulos.php' 
+            data: { idtipoHotel: idtipoHotel }
         })
+        .done(function(resultado) {
+            console.log(resultado);
+            if (resultado === '') {
+                $("#cliente option").remove();
+
+            } else {
+                $("#cliente option").remove();
+                $("#cliente").html(resultado);
+            }
+        });
+
+
 });

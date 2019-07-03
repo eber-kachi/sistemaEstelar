@@ -8,7 +8,7 @@ require '../../Modelo/Habitacion/BDBuscadorHabitacion.php';
 session_start();
 
 // echo "user" . $_SESSION['star_login'];
-// echo "idUsuario" . $_SESSION['idUsuario'];
+$idUsuario = $_SESSION['idUsuario'];
 $conexion = new Conexion();
 $objetoHabitacion = new Habitacion();
 $conexion = new Conexion();

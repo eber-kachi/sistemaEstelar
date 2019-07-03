@@ -53,7 +53,6 @@ class AgenteTuristico
     }
     public function setNombre($nombre)
     {
-
         $this->nombre = $nombre;
     }
     // GETSS
