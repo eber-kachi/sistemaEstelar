@@ -177,10 +177,9 @@ create or replace procedure  listarTipoHabitacionesLibresSegunIdHotelIdTipoHabit
   end //
  call listarTipoHabitacionesLibresSegunIdHotelIdTipoHabitacion(1,1);
 
-INSERT INTO clientereserva(idReserva, idCliente, esTitular)
-                          VALUES (:idReserva,:idCliente,:esTitular);
+
 select *
-from reserva r
-where (r.fechaInicio between '06:00:00' and '08:00:00')
-  and (e_time_end between '06:00:00' and '08:00:00')
-  AND e_date_event = '2018-03-15';
+from usuario u inner join reserva r on u.idUsuario = r.idUsuario
+    and u.idUsuario=2
+join agenteturistico a on r.idAgenteTuristico = a.idAgenteTuristico
+join agencia a2 on a.idAgencia = a2.idAgencia
