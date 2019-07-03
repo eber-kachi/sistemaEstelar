@@ -7,10 +7,21 @@ require '../../Modelo/Habitacion/Habitacion.php';
 require '../../Modelo/Habitacion/BDBuscadorHabitacion.php';
 session_start();
 
-echo "user" . $_SESSION['star_login'];
-echo "id" . $_SESSION['idUsuario'];
-
+// echo "user" . $_SESSION['star_login'];
+// echo "idUsuario" . $_SESSION['idUsuario'];
 $conexion = new Conexion();
+$objetoHabitacion = new Habitacion();
+$conexion = new Conexion();
+$objetoBDBuscadorCliente = new BDBuscadorCliente();
+$objetoBDBuscadorHotel = new BDBuscadorHotel();
+$objetoBDBuscadorHabitacion = new BDBuscadorHabitacion();
+
+$clienteResultado = $objetoBDBuscadorCliente->listaDeClientesActivos();
+
+$listaTipoHabitaciones = $objetoBDBuscadorHabitacion->listarTipoHabitacion();
+
+$Hotel = $objetoBDBuscadorHotel->listaDeHotelePorId($clienteResultado[0]->getIdHotel());
+
 
 
 
