@@ -48,7 +48,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="./LogicaListarCliente.php">
+                <a class="nav-link" href="../Cliente/LogicaListarCliente.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Clientes</span></a>
             </li>
@@ -56,7 +56,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
             <li class="nav-item active">
-                <a class="nav-link" href="../ReservaHabitacion/LogicaListarRecervaHabitacion.php">
+                <a class="nav-link" href="../ReservaHabitacion/LogicaListarReservaHabitacionResepcionista.php">
                     <i class="fas fa-file-prescription"></i>
                     <span>Reserva Habitacion</span>
                 </a>

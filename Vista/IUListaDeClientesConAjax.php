@@ -79,9 +79,9 @@ $listaDehoteles = $objetoLogicaBuscadorHotel->listaDeHoteles();
                         <div class="col-1"></div>
                         <div class="col ">
                             <div class="form-group ">
-                                <label class="control-label " for="ci">Carnet de identidad *(CI,NIT)</label>
+                                <label class="control-label " for="ci">Carnet de Identidad *(CI,NIT)</label>
                                 <input type="input" class="form-control " id="verificarCiInput" title="435781-CBBA" name="ci" required pattern="[0-9]+?-+?[a-zA-Z]+" placeholder="ingresa Ci Cliente">
-                                <strong id="mensajeCi"></strong>
+                                <strong id="mensajeCi"> </strong>
 
                             </div>
                         </div>

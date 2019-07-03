@@ -23,6 +23,9 @@ if (isset($_REQUEST['usuario']) && isset($_REQUEST['contrasenia'])) {
     } else if (!is_null($usuarioResultado)) {
         if ($usuarioResultado['nombre'] == 'Recepcionista' && $usuarioResultado['activo'] == '1') {
             //echo 'bien benido Recepcionista ';
+            $_SESSION['star_login'] = $usuarioResultado['usuario'];
+            $_SESSION['idUsuario'] = $usuarioResultado['idUsuario'];
+
             echo " <script> alert(' Usuario Resepcionistas');location.href = './Cliente/LogicaListarCliente.php';</script> ";
         } else if ($usuarioResultado['nombre'] == 'Administrador' && $usuarioResultado['activo'] == '1') {
             echo 'bien benido Administrador ';
